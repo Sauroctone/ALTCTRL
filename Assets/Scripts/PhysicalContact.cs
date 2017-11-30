@@ -12,6 +12,7 @@ public class PhysicalContact : MonoBehaviour {
 	{
 		if (Input.GetKey (KeyCode.Space))
 		{
+			audioSource.Stop ();
 			audioSource.PlayOneShot (failure);
 			Destroy (listManager);
 			print ("Le courant passe !");
