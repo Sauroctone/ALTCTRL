@@ -77,15 +77,17 @@ LightmapSettings:
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
     m_PVRBounces: 2
-    m_PVRFiltering: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
     m_PVRFilteringMode: 1
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
-    m_PVRFilteringAtrousColorSigma: 1
-    m_PVRFilteringAtrousNormalSigma: 1
-    m_PVRFilteringAtrousPositionSigma: 1
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -107,6 +109,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    debug:
+      m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &5993861
 GameObject:
@@ -156,20 +160,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -262,7 +252,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
 --- !u!4 &92393989
 Transform:
   m_ObjectHideFlags: 0
@@ -416,17 +405,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   list:
-  - PBlaGBlaPRou
-  - PBlaPRosGRou
-  - PBlePRosGVer
-  - PBlaGRosGVer
-  - PBlePRouGRou
-  - GBlaPBleGRos
+  - GBlaPBlePRos
+  - GNoiGRosPRos
+  - GNoiGVerPRou
+  - GVerGRosPRou
+  - GVerPRosGNoi
   listHard:
-  - PBlaGBlaPRouGRou
-  - PBleGVerGRosPRos
-  - GRosPRosGrouPBla
-  - GRosPBleGrouPBla
+  - GBlaGBlaGRosGRos
+  - GNoiPRosGRosGVer
+  - GNoiGVerPRouPRos
+  - PRosGBlaGBleGRos
+  - GVerGVerGBleGBle
   feedbackList:
   - {fileID: 8300000, guid: 6bda592760afa9543beb1d50a85eab19, type: 3}
   - {fileID: 8300000, guid: 8f5345a59ce25de4782ae652af1e9e41, type: 3}
@@ -436,6 +425,18 @@ MonoBehaviour:
   audioSource: {fileID: 981809023}
   intro: {fileID: 8300000, guid: 9b1fe06d6e7e3984386e6b7bfbd91073, type: 3}
   success: {fileID: 8300000, guid: bd9fc6ab3ebdd7146ae3ca8db9a51862, type: 3}
+  instructions:
+  - {fileID: 8300000, guid: f0cb1124c82f06a4994dcfa89f4d4ca9, type: 3}
+  - {fileID: 8300000, guid: 6152051e1d803d84ea066649ca34c2ed, type: 3}
+  - {fileID: 8300000, guid: adcb04e4161924a448ab41ab0b14847e, type: 3}
+  - {fileID: 8300000, guid: 4f0be702303599a4aa11174a686a191f, type: 3}
+  - {fileID: 8300000, guid: 0ee1192a9159e214a9d03f599b2e821e, type: 3}
+  instructionsHard:
+  - {fileID: 8300000, guid: 06e9ede1d51f76a4ea9fad0af6929b70, type: 3}
+  - {fileID: 8300000, guid: 8da8f8e08ec102f41b3bd19b357ce14d, type: 3}
+  - {fileID: 8300000, guid: 1a73463e84cd8db4a80c7002719d1afb, type: 3}
+  - {fileID: 8300000, guid: b32bfe8e6c468d64e8bc73923c713f36, type: 3}
+  - {fileID: 8300000, guid: f5960c2b06fddab4f9844279830fb170, type: 3}
 --- !u!4 &1870391069
 Transform:
   m_ObjectHideFlags: 0

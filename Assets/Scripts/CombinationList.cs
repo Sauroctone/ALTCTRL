@@ -22,6 +22,9 @@ public class CombinationList : MonoBehaviour {
 	public List<AudioClip> instructions = new List<AudioClip> ();
 	public List<AudioClip> instructionsHard = new List<AudioClip> ();
 
+	bool skip;
+	bool introIsDone;
+
 	void Start ()
 	{
 		audioSource.PlayOneShot (intro);
@@ -31,10 +34,19 @@ public class CombinationList : MonoBehaviour {
 
 	void Update ()
 	{
-		if (list.Count > 0)
-			TestInputThree ();
-		else if (listHard.Count > 0)
-			TestInputFour ();
+		if (introIsDone) 
+		{
+			if (list.Count > 0)
+				TestInputThree ();
+			else if (listHard.Count > 0)
+				TestInputFour ();
+		}
+
+		if (!introIsDone && !skip && Input.anyKeyDown) 
+		{
+			skip = true;
+			audioSource.Stop ();
+		}
 	}
 
 	void TestInputThree()
@@ -77,7 +89,7 @@ public class CombinationList : MonoBehaviour {
 
 	IEnumerator WaitForIntro()
 	{
-		while (audioSource.isPlaying) 
+		while (audioSource.isPlaying && !skip) 
 		{
 			yield return null;
 		}
@@ -88,6 +100,10 @@ public class CombinationList : MonoBehaviour {
 	IEnumerator ChooseCombinationThree ()
 	{
 		yield return new WaitForSeconds (2);
+
+		if (!introIsDone)
+			introIsDone = true;
+
 		currentLine = Mathf.FloorToInt (Random.Range (0, list.Count));
 		firstInput = list [currentLine].Substring(0, 4); 
 		secondInput = list [currentLine].Substring(4, 4); 
